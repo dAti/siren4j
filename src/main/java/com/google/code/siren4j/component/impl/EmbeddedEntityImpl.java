@@ -1,12 +1,12 @@
 package com.google.code.siren4j.component.impl;
 
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.code.siren4j.component.Action;
 import com.google.code.siren4j.component.Entity;
 import com.google.code.siren4j.component.Link;
+
+import javax.json.bind.annotation.JsonbTransient;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Entity impl class to mark embedded entity and to allow suppressing of
@@ -16,25 +16,25 @@ import com.google.code.siren4j.component.Link;
 public class EmbeddedEntityImpl extends EntityImpl {
 
     @Override
-    @JsonIgnore
+    @JsonbTransient
     public Map<String, Object> getProperties() {
         return super.getProperties();
     }
 
     @Override
-    @JsonIgnore
+    @JsonbTransient
     public List<Entity> getEntities() {
         return super.getEntities();
     }
 
     @Override
-    @JsonIgnore
+    @JsonbTransient
     public List<Link> getLinks() {
         return super.getLinks();
     }
 
     @Override
-    @JsonIgnore
+    @JsonbTransient
     public List<Action> getActions() {
         return super.getActions();
     }

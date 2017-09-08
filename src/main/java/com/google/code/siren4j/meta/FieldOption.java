@@ -18,16 +18,14 @@
  *********************************************************************************************/
 package com.google.code.siren4j.meta;
 
+import javax.json.bind.annotation.JsonbProperty;
 import java.util.HashMap;
 import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Field option is used to provide a list of choices available for a field that the client can  use to set the
  * field value.
  */
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class FieldOption {
 
     /**
@@ -45,7 +43,8 @@ public class FieldOption {
      * (Optional)
      */
     private Map<String, String> data;
-    @JsonProperty(value = "default")
+
+    @JsonbProperty(value = "default")
     private boolean optionDefault;
 
     public FieldOption() {

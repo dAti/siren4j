@@ -23,11 +23,9 @@
  *********************************************************************************************/
 package com.google.code.siren4j.component;
 
+import javax.json.bind.annotation.JsonbTypeDeserializer;
 import java.util.List;
 import java.util.Map;
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.google.code.siren4j.component.impl.EntityImpl;
 
 /**
  * <pre>
@@ -42,7 +40,7 @@ import com.google.code.siren4j.component.impl.EntityImpl;
  * </pre>
  *
  */
-@JsonDeserialize(as = EntityImpl.class)
+@JsonbTypeDeserializer(EntityDeserializer.class)
 public interface Entity extends Component{
 
     /**

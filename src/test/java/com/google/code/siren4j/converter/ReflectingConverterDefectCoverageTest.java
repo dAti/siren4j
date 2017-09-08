@@ -14,7 +14,6 @@ package com.google.code.siren4j.converter;
 import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.code.siren4j.component.Entity;
 import com.google.code.siren4j.component.testpojos.BlogEntry;
 import com.google.code.siren4j.component.testpojos.Comment;
@@ -100,8 +99,8 @@ public class ReflectingConverterDefectCoverageTest {
 
         CollectionResource<String> deserializedCollection = (CollectionResource<String>) converter.toObject(entity);
         System.out.println(entity.toString());
-        ObjectMapper mapper = new ObjectMapper();
-        Entity ent = mapper.readValue(entity.toString(), Entity.class);
+//        ObjectMapper mapper = new ObjectMapper();
+//        Entity ent = mapper.readValue(entity.toString(), Entity.class);
         assertNotNull(deserializedCollection);
     }
 }

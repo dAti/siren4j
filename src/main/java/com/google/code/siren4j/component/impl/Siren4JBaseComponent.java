@@ -1,18 +1,14 @@
 package com.google.code.siren4j.component.impl;
 
-import java.text.SimpleDateFormat;
+import com.google.code.siren4j.jsonb.JsonUtility;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.code.siren4j.Siren4J;
-
-
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
+import javax.json.bind.annotation.JsonbProperty;
 
 public abstract class Siren4JBaseComponent {
 
-    @JsonProperty(value = "class")
+    @JsonbProperty(value = "class")
     protected String[] componentClass;
 
     public String[] getComponentClass() {
@@ -23,22 +19,9 @@ public abstract class Siren4JBaseComponent {
         this.componentClass = componentClass;
     }
 
-    /**
-     * Uses Jackson to serialize into a json string.
-     */
     @Override
     public String toString() {
-        String out = "";
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-            mapper.setDateFormat(new SimpleDateFormat(Siren4J.ISO8601_DATE_FORMAT));
-            out = mapper.writeValueAsString(this);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        return out;
+        Jsonb jsonb = JsonUtility.getJsonbBuilder();
+        return jsonb.toJson(this);
     }
-    
-
 }

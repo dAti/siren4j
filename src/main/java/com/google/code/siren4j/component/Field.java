@@ -23,16 +23,15 @@
  *********************************************************************************************/
 package com.google.code.siren4j.component;
 
-import java.util.List;
-import java.util.Map;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.google.code.siren4j.component.impl.FieldImpl;
 import com.google.code.siren4j.meta.FieldOption;
 import com.google.code.siren4j.meta.FieldType;
+
+import java.util.List;
+import java.util.Map;
+
 /**
  * Fields represent controls inside of actions.
  */
-@JsonDeserialize(as = FieldImpl.class)
 public interface Field extends Component {
     
     /**

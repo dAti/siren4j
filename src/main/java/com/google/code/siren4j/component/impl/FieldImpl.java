@@ -23,19 +23,16 @@
  *********************************************************************************************/
 package com.google.code.siren4j.component.impl;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.google.code.siren4j.component.Field;
 import com.google.code.siren4j.meta.FieldOption;
 import com.google.code.siren4j.meta.FieldType;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-@JsonInclude(Include.NON_NULL)
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 public class FieldImpl extends Siren4JBaseComponent implements Field {
 
     private String name;
